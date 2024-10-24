@@ -210,7 +210,6 @@ def gpt_version():
           errors, " Missing Label: ", missing_label)
 
 
-path = "CT/s4117D96E-1.3.12.2.1107.5.1.4.122141.30000023100412583176500032154.dcm"
 # print(get_orientation(
 #     path))
 # print(ds.AccessionNumber)
