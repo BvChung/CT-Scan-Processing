@@ -15,7 +15,7 @@ python preprocess_ct_slices.py
 
 # File Structure
 
-- recordings directory must be included in root directory to correctly run this script and must follow the following structure, all other directories are dynamically created by the script.
+- `recordings` directory must be included in root directory to correctly run this script and must follow the following structure, all other directories are dynamically created by the script.
 
 ```bash
 └───recordings
