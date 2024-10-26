@@ -16,6 +16,7 @@ python preprocess_ct_slices.py
 # File Structure
 
 - `recordings` directory must be included in root directory to correctly run this script and must follow the following structure, all other directories are dynamically created by the script.
+- Each `/recordings/MD{version}/recording{#}` directory should contain the Dicom files for the corresponding recording.
 
 ```bash
 └───recordings
