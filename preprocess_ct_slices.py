@@ -5,7 +5,11 @@ import shutil
 
 
 """
-References used to understand the orientation of the CT scans:
+Refer to the Github repository for this script for more information and instructions:
+https://github.com/BvChung/CT-Slice-Processing
+
+
+References used:
 https://dicomiseasy.blogspot.com/2013/06/getting-oriented-using-image-plane.html
 https://blog.redbrickai.com/blog-posts/introduction-to-dicom-coordinate
 https://stackoverflow.com/questions/70645577/translate-image-orientation-into-axial-sagittal-or-coronal-plane
@@ -291,7 +295,7 @@ def number_slices_per_plane(recording_number: int, version: str):
 
 
 def process_to_3DNumpy(recording_number: int, version: str):
-    print("Article version Recording Number:", recording_number)
+    print("Recording Number:", recording_number, "Version:", version)
     directory_path = os.path.join(
         f'categorized_ct_slices/{version}/recording' + str(recording_number))
     output_path = os.path.join(
@@ -310,10 +314,8 @@ def process_to_3DNumpy(recording_number: int, version: str):
 
         dir_contents = os.listdir(current_path)
         ct_scans = [f for f in dir_contents if f.endswith(".dcm")]
-        # print(ct_scans)
 
         # volume = []
-        # print(volume.shape)
         for ct in ct_scans:
             file_path = os.path.join(current_path, ct)
 
@@ -321,7 +323,8 @@ def process_to_3DNumpy(recording_number: int, version: str):
             # print(ds.pixel_array.shape)
             unique_shapes.add(ds.pixel_array.shape)
             # resulting_matrix.append(ds.pixel_array)
-        print(v, unique_shapes)
+        print(v.upper(
+        ), "All distinct dimensions sizes (row, col) of Dicom images within directory:", unique_shapes)
         # resulting_matrix = np.array(resulting_matrix)
         # print(resulting_matrix.shape)
         # np.save(current_output_path, resulting_matrix)
